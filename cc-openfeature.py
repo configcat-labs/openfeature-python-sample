@@ -40,7 +40,7 @@ def welcome():
 	
 @app.get("/courses/")
 def get_courses():
-	is_get_courses_enabled = client.get_boolean_value('get_courses_enabled', False)
+	is_get_courses_enabled = app.state.client.get_boolean_value('get_courses_enabled', False)
 	if is_get_courses_enabled:
  		return {"courses": courses}
 	else:
