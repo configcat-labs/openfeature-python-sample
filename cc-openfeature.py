@@ -17,9 +17,9 @@ async def lifespan(app: FastAPI):
 	api.set_provider(cc_provider)
 	client = api.get_client()
 	app.state.client = client
-    yield
-    # clean up all provders
-    api.shutdown()
+	yield
+	# clean up all provders
+	api.shutdown()
 
 app = FastAPI(lifespan=lifespan)
 
@@ -40,8 +40,8 @@ def welcome():
 	
 @app.get("/courses/")
 def get_courses():
-    is_get_courses_enabled = client.get_boolean_value('get_courses_enabled', False)
-    if is_get_courses_enabled:
-        return {"courses": courses}
-    else:
-        raise HTTPException(status_code = 404)
+	is_get_courses_enabled = client.get_boolean_value('get_courses_enabled', False)
+	if is_get_courses_enabled:
+ 		return {"courses": courses}
+	else:
+		raise HTTPException(status_code = 404)
