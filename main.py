@@ -16,7 +16,9 @@ async def lifespan(app: FastAPI):
     # shut down the client
     client.close()
 
+
 app = FastAPI(lifespan=lifespan)
+
 
 class Course(BaseModel):
     id: int
@@ -24,20 +26,23 @@ class Course(BaseModel):
     author: str
     price: float
 
+
 courses = [
-    Course(id = 1, title = "Intro to HTML", author = "Guy Person", price = 49.99),
-    Course(id = 2, title = "Intro to JavaScript", author = "Mister Coder", price = 59.99),
-    Course(id = 3, title = "Building APIs with Go", author = "Sir Programmer", price = 60.99),
+    Course(id=1, title="Intro to HTML", author="Guy Person", price=49.99),
+    Course(id=2, title="Intro to JavaScript", author="Mister Coder", price=59.99),
+    Course(id=3, title="Building APIs with Go", author="Sir Programmer", price=60.99),
 ]
+
 
 @app.get("/")
 def welcome():
-	return {"Welcome to courses app"}
-	
+    return {"Welcome to courses app"}
+
+
 @app.get("/courses/")
 def get_courses():
     is_get_courses_enabled = app.state.client.get_value('get_courses_enabled', False)
     if is_get_courses_enabled:
         return {"courses": courses}
     else:
-        raise HTTPException(status_code = 404)
+        raise HTTPException(status_code=404)
