@@ -3,7 +3,7 @@
 [//]: # (TODO: Add link to the published article below)
 [Read the blog post here](https://configcat.com/blog/)
 
-This repository accompanies the article "Announcing Official Support for OpenFeature." The sample app is a simple Python FastAPI application that returns a list of courses from its `/courses` route. It was built to demonstrate integrating OpenFeature into an existing app that uses [ConfigCat feature flag](https://configcat.com).
+This repository accompanies the article "Announcing Official Support for OpenFeature." The sample app is a simple Python FastAPI application that returns a list of courses from its `/courses` route. It was built to demonstrate integrating OpenFeature into an existing app that uses [ConfigCat feature flags](https://configcat.com).
 
 ## Build & Run
 
