@@ -17,7 +17,7 @@ async def lifespan(app: FastAPI):
 	client = api.get_client()
 	app.state.client = client
 	yield
-	# clean up all provders
+	# clean up all providers
 	api.shutdown()
 
 app = FastAPI(lifespan=lifespan)
